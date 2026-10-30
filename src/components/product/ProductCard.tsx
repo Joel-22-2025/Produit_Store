@@ -1,10 +1,10 @@
-import { Heart, Plus } from 'lucide-react'
+import { Heart } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { LazyImage } from '@/components/product/LazyImage'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
-import { formatCategory, formatPrice } from '@/lib/format'
+import { formatCategory } from '@/lib/format'
 import { cn } from '@/lib/utils'
 import { useCartStore } from '@/store/cartStore'
 import { useFavoritesStore } from '@/store/favoritesStore'

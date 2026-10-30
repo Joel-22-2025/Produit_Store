@@ -1,8 +1,4 @@
-import { ShoppingBag } from 'lucide-react'
 
-import { Badge } from '@/components/ui/Badge'
-
-const STACK = ['React 18', 'TypeScript', 'TanStack Query', 'Zustand', 'Tailwind']
 
 /** Pied de page commun, volontairement sobre. */
 export function Footer() {

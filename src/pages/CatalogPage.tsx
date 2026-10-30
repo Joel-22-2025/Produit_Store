@@ -1,13 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   ArrowUpDown,
-  PackageSearch,
   RotateCcw,
   Search,
-  ShieldCheck,
-  Sparkles,
-  Truck,
-  X,
 } from 'lucide-react'
 
 import { ApiError } from '@/api/client'
@@ -15,7 +10,6 @@ import { EmptyState } from '@/components/feedback/EmptyState'
 import { ErrorState } from '@/components/feedback/ErrorState'
 import { LoadingState } from '@/components/feedback/LoadingState'
 import { ProductGrid } from '@/components/product/ProductGrid'
-import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { Input } from '@/components/ui/Input'
 import { Pagination } from '@/components/ui/Pagination'

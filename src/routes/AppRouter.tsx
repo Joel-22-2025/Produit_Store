@@ -1,8 +1,7 @@
 import { lazy } from 'react'
-import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
 import { Layout } from '@/components/layout/Layout'
-import { Button } from '@/components/ui/Button'
 
 // Toutes les pages sont chargées à la demande (code splitting).
 // Le <Suspense> se trouve dans le Layout pour conserver header/footer visibles.
