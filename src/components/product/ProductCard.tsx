@@ -2,7 +2,6 @@ import { Heart, Plus } from 'lucide-react'
 import { Link } from 'react-router-dom'
 
 import { LazyImage } from '@/components/product/LazyImage'
-import { StarRating } from '@/components/product/StarRating'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
 import { formatCategory, formatPrice } from '@/lib/format'
@@ -42,15 +41,16 @@ export function ProductCard({ product }: ProductCardProps) {
 
   const handleToggleFavorite = () => {
     toggleFavorite(product.id)
-    pushToast({
-      variant: 'info',
-      title: isFavorite ? 'Retiré des favoris' : 'Ajouté aux favoris',
-      description: product.title,
-    })
+    // pushToast({
+    //   variant: 'info',
+    //   title: isFavorite ? 'Retiré des favoris' : 'Ajouté aux favoris',
+    //   description: product.title,
+    // })
   }
 
   return (
-    <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-soft">
+    <article className="relative flex h-full flex-col overflow-hidden rounded-2xl border bg-gray-200 shadow-sm  hover:shadow-soft">
+    {/* <article className="group relative flex h-full flex-col overflow-hidden rounded-2xl border bg-card shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/30 hover:shadow-soft"> */}
       {/* Overlay de navigation : rend toute la carte cliquable. */}
       <Link
         to={`/product/${product.id}`}
@@ -59,12 +59,12 @@ export function ProductCard({ product }: ProductCardProps) {
       />
 
       <div className="pointer-events-none relative flex flex-1 flex-col p-4">
-        <div className="relative aspect-square overflow-hidden rounded-xl bg-white p-5 ring-1 ring-black/5">
+        <div className="relative aspect-square overflow-hidden rounded-xl bg-yellow-50 p-5 ring-1 ring-black/5">
           <LazyImage
             src={product.image}
             alt={product.title}
             className="h-full w-full bg-white"
-            imageClassName="drop-shadow-sm transition-transform duration-500 group-hover:scale-105"
+            // imageClassName="transition-transform duration-500 group-hover:scale-105"
           />
 
           <Badge
@@ -95,19 +95,19 @@ export function ProductCard({ product }: ProductCardProps) {
         </div>
 
         <div className="mt-4 flex flex-1 flex-col gap-2">
-          <StarRating rate={product.rating.rate} count={product.rating.count} />
+          {/* <StarRating rate={product.rating.rate} count={product.rating.count} /> */}
 
           <h3 className="line-clamp-2 min-h-[2.5rem] text-sm font-semibold leading-snug text-foreground">
             {product.title}
           </h3>
 
           <div className="mt-auto flex items-baseline justify-between gap-2 pt-1">
-            <span className="text-lg font-bold tracking-tight text-foreground">
-              {formatPrice(product.price)}
+            <span className="text-lg font-bold bg-re text-foreground ">
+              Prix: {(product.price)}
             </span>
-            <span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
+            {/* <span className="text-[11px] font-medium uppercase tracking-wide text-muted-foreground">
               En stock
-            </span>
+            </span> */}
           </div>
         </div>
 
@@ -116,9 +116,9 @@ export function ProductCard({ product }: ProductCardProps) {
           size="sm"
           onClick={handleAddToCart}
           className="pointer-events-auto relative z-10 mt-3 w-full"
-          aria-label={`Ajouter ${product.title} au panier`}
+          
         >
-          <Plus className="h-4 w-4" />
+          {/* <Plus className="h-4 w-4" /> */}
           Ajouter au panier
         </Button>
       </div>

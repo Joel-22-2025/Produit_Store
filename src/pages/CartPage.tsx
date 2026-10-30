@@ -208,9 +208,9 @@ export default function CartPage() {
             <Link to="/">Continuer mes achats</Link>
           </Button>
 
-          <p className="mt-3 text-center text-xs text-muted-foreground">
+          {/* <p className="mt-3 text-center text-xs text-muted-foreground">
             Le paiement sera ajouté à une prochaine étape.
-          </p>
+          </p> */}
         </aside>
       </div>
     </div>

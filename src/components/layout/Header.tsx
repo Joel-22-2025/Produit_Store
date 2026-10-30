@@ -46,10 +46,11 @@ export function Header() {
           aria-label="NovaStore — retour au catalogue"
         >
           <span className="grid h-9 w-9 place-items-center rounded-xl bg-gradient-to-br from-primary to-fuchsia-500 text-primary-foreground shadow-lg shadow-primary/25">
-            <ShoppingBag className="h-5 w-5" aria-hidden="true" />
+            {/* <ShoppingBag className="h-5 w-5" aria-hidden="true" /> */}
+            JS
           </span>
           <span className="text-lg font-extrabold tracking-tight">
-            Nova<span className="text-primary">Store</span>
+            Joel<span className="text-primary">Store</span>
           </span>
         </Link>
 
@@ -66,7 +67,7 @@ export function Header() {
               )
             }
           >
-            <LayoutGrid className="h-4 w-4" aria-hidden="true" />
+            {/* <LayoutGrid className="h-4 w-4" aria-hidden="true" /> */}
             <span className="hidden sm:inline">Catalogue</span>
           </NavLink>
 
@@ -82,7 +83,7 @@ export function Header() {
             }
             aria-label={`Panier, ${cartCount} article${cartCount > 1 ? 's' : ''}`}
           >
-            <ShoppingCart className="h-4 w-4" aria-hidden="true" />
+            {/* <ShoppingCart className="h-4 w-4" aria-hidden="true" /> */}
             <span className="hidden sm:inline">Panier</span>
             <CountBadge count={cartCount} />
           </NavLink>
@@ -94,7 +95,8 @@ export function Header() {
               aria-label={`Favoris, ${favoritesCount} article${favoritesCount > 1 ? 's' : ''}`}
               className="text-muted-foreground hover:text-foreground"
             >
-              <Heart className="h-5 w-5" aria-hidden="true" />
+              {/* <Heart className="h-5 w-5" aria-hidden="true" /> */}
+              <p>Favoris</p>
               <CountBadge
                 count={favoritesCount}
                 className="absolute -right-0.5 -top-0.5 h-4 min-w-4 px-0.5 text-[9px]"
@@ -103,7 +105,7 @@ export function Header() {
           </Button>
 
           {/* Mode sombre / clair (persisté dans localStorage). */}
-          <Button
+          {/* <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
@@ -116,7 +118,7 @@ export function Header() {
             ) : (
               <Moon className="h-5 w-5" aria-hidden="true" />
             )}
-          </Button>
+          </Button> */}
         </nav>
       </div>
     </header>

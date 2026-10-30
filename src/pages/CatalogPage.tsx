@@ -134,7 +134,7 @@ export default function CatalogPage() {
   return (
     <div className="container-page space-y-6 py-6 sm:space-y-8 sm:py-10">
       {/* --- En-tête de page ------------------------------------------------- */}
-      <section className="relative overflow-hidden rounded-3xl border bg-card p-6 shadow-sm sm:p-9">
+      {/* <section className="relative overflow-hidden rounded-3xl border bg-card p-6 shadow-sm sm:p-9">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-primary/15 blur-3xl"
@@ -177,7 +177,7 @@ export default function CatalogPage() {
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* --- Barre de recherche / tri / catégories --------------------------- */}
       <section
@@ -194,6 +194,7 @@ export default function CatalogPage() {
               className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground"
               aria-hidden="true"
             />
+            {/* --------------------Recherche------------------------ */}
             <Input
               id="catalog-search"
               type="search"
@@ -202,7 +203,7 @@ export default function CatalogPage() {
               onChange={(event) => setSearch(event.target.value)}
               className="h-11 pl-10 pr-10 [&::-webkit-search-cancel-button]:appearance-none"
             />
-            {search.length > 0 && (
+            {/* {search.length > 0 && (
               <button
                 type="button"
                 onClick={() => setSearch('')}
@@ -211,7 +212,7 @@ export default function CatalogPage() {
               >
                 <X className="h-4 w-4" />
               </button>
-            )}
+            )} */}
           </div>
 
           <div className="flex flex-wrap items-center gap-2">
