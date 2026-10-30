@@ -43,7 +43,16 @@ export async function apiRequest<T>(path: string, options: RequestInit = {}): Pr
       throw new ApiError(`La requête a échoué (code ${response.status}).`, response.status)
     }
 
-    return (await response.json()) as T
+    // Fake Store API renvoie parfois un corps vide avec un statut 200
+    // (ex: produit inexistant) : on renvoie null au lieu de planter.
+    const body = await response.text()
+    if (!body) return null as T
+
+    try {
+      return JSON.parse(body) as T
+    } catch {
+      throw new ApiError('La réponse du serveur est invalide.')
+    }
   } catch (error) {
     // On laisse remonter nos propres erreurs telles quelles.
     if (error instanceof ApiError) throw error

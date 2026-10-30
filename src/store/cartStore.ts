@@ -12,9 +12,12 @@ export interface CartItem {
   quantity: number
 }
 
+/** Quantité maximale par ligne (garde-fou simple, l'API ne fournit pas de stock). */
+export const MAX_CART_QUANTITY = 99
+
 interface CartState {
   items: CartItem[]
-  addItem: (product: Product) => void
+  addItem: (product: Product, quantity?: number) => void
   removeItem: (id: number) => void
   incrementQuantity: (id: number) => void
   decrementQuantity: (id: number) => void
@@ -33,15 +36,26 @@ export const useCartStore = create<CartState>()(
     (set) => ({
       items: [],
 
-      addItem: (product) =>
+      /**
+       * Ajoute un produit. `quantity` permet à la fiche produit d'ajouter
+       * plusieurs exemplaires d'un coup (par défaut : 1).
+       */
+      addItem: (product, quantity = 1) =>
         set((state) => {
+          // On sécurise la valeur : entier entre 1 et MAX_CART_QUANTITY.
+          const amount = Math.min(MAX_CART_QUANTITY, Math.max(1, Math.floor(quantity)))
           const existing = state.items.find((item) => item.id === product.id)
 
           // Produit déjà présent : on incrémente simplement la quantité.
           if (existing) {
             return {
               items: state.items.map((item) =>
-                item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+                item.id === product.id
+                  ? {
+                      ...item,
+                      quantity: Math.min(MAX_CART_QUANTITY, item.quantity + amount),
+                    }
+                  : item
               ),
             }
           }
@@ -54,7 +68,7 @@ export const useCartStore = create<CartState>()(
                 title: product.title,
                 price: product.price,
                 image: product.image,
-                quantity: 1,
+                quantity: amount,
               },
             ],
           }
@@ -65,7 +79,9 @@ export const useCartStore = create<CartState>()(
       incrementQuantity: (id) =>
         set((state) => ({
           items: state.items.map((item) =>
-            item.id === id ? { ...item, quantity: item.quantity + 1 } : item
+            item.id === id
+              ? { ...item, quantity: Math.min(MAX_CART_QUANTITY, item.quantity + 1) }
+              : item
           ),
         })),
 

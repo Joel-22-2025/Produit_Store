@@ -13,9 +13,9 @@ export function getProducts(): Promise<Product[]> {
   return apiRequest<Product[]>('/products')
 }
 
-/** Récupère un produit par son identifiant (utilisé par la future fiche produit). */
-export function getProductById(id: string | number): Promise<Product> {
-  return apiRequest<Product>(`/products/${id}`)
+/** Récupère un produit par son identifiant (utilisé par la fiche produit). */
+export function getProductById(id: string | number): Promise<Product | null> {
+  return apiRequest<Product | null>(`/products/${id}`)
 }
 
 /** Récupère la liste des catégories disponibles. */
