@@ -105,7 +105,7 @@ export function Header() {
           </Button>
 
           {/* Mode sombre / clair (persisté dans localStorage). */}
-          {/* <Button
+           <Button
             variant="ghost"
             size="icon"
             onClick={toggleTheme}
@@ -118,7 +118,7 @@ export function Header() {
             ) : (
               <Moon className="h-5 w-5" aria-hidden="true" />
             )}
-          </Button> */}
+          </Button> 
         </nav>
       </div>
     </header>
